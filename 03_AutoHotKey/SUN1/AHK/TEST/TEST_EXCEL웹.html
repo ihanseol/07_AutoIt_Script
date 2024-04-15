@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>엑셀자료 입력 TEST ※ 응용프로그램으로 가정</h2>
+<form action="/action_page.php">
+
+    <label for="fname">1. 계약건명:</label>
+    <input type="text" id="fname" name="fname" size="35"><br><br>
+
+    <label for="lname">2. 업체명칭:</label>
+    <input type="text" id="uname" name="uname"><br><br>
+
+    <label for="lname">3. 계약금액:</label>
+    <input type="text" id="sumname" name="sumlname"><br><br>
+
+    <label for="text">4. 계약일시:</label>
+    <input type="text" id="datename" name="datelname"><br><br>
+
+    <label for="text">5. 공사구분:</label>
+    <input type="radio" id="male" name="gender" value="공사">
+    <label for="male">공사</label>
+    <input type="radio" id="female" name="gender" value="용역">
+    <label for="female">용역</label>
+    <input type="radio" id="other" name="gender" value="물품">
+    <label for="other">물품</label><br><br>
+
+    <label for="text">6. 관내구분:</label>
+    <input type="checkbox" id="rhksso" name="verhksso" value="관내">
+    <label for="vehicle1">관내</label>
+    <input type="checkbox" id="rhksdhl" name="vehrhksso" value="관외">
+    <label for="vehicle2">관외</label><br><br>
+	
+	<label for="검토">7. 참고사항</label>
+	<select name="gum" id="gumto">
+	<option value="gumsun">선택</option>
+	<option value="gum1">검토</option>
+    <option value="gum2">추진중</option>
+    <option value="gum3">완료</option>
+	</select>
+	<br><br>
+    <input type="reset" id="gabinput"  value="저장하기">
+
+</form>
+</body>
+</html>
