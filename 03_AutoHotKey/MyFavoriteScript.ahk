@@ -14,13 +14,18 @@
 ;******************************************************************************
 ;			Reload/Execute this script.ahk file
 ;******************************************************************************
-::rscript::
-^!R::             ; CTRL + ALT + R
-Reload, "c:\Program Files\totalcmd\ini\03_AutoHotKey\MyFavoriteScript.ahk"
-Return
+;::rscript::
+
+SetWorkingDir %A_ScriptDir%
+#Include %A_ScriptDir%/hwasoo_inclue/00_exit_reload.ahk
 
 
-^e::exitapp
+;~ ^!R::             ; CTRL + ALT + R
+;~ Reload , "c:\Program Files\totalcmd\ini\03_AutoHotKey\MyFavoriteScript.ahk"
+;~ Return
+
+
+;~ ^e::exitapp
 
 ;******************************************************************************
 ;			Text replacements for most used keywords
@@ -80,6 +85,21 @@ Return
 ::]mycomp::
 SendInput %A_ComputerName%
 Return
+
+
+IpCheck()
+{
+    URLDownloadToFile,http://ipinfo.io/ip, %A_ScriptDir%\showip.txt
+    if ErrorLevel = 1
+    {
+        MsgBox, 16,IpAddresses,Your public Ipaddress could not be detected.
+    }
+    FileReadLINE,Mainip,%A_ScriptDir%\showip.txt, 1
+    MsgBox, 64,Ipaddresses,Your Public IpAddress is: [ %Mainip% ]`n`nYour private ipAddress is: [ %A_IPAddress1% ]
+    FileDelete, showip.txt
+}
+
+
 
 
 ;******************************************************************************
@@ -172,6 +192,29 @@ Return
 ;******************************************************************************
 ;			Date/Time Stamps
 ;******************************************************************************
+
+F1::
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+;SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+
+FormatTime, CurrentDateTime,, yyyy MMMM d, HH:mm:ss
+KoreanDateTime := CurrentDateTime
+RegExMatch(KoreanDateTime, "(\d+) (\d+)¿ù (\d+), (\d+):(\d+):(\d+)", Match)
+
+; Convert month number to English name
+MonthNames := ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+Month := MonthNames[Match2]
+
+SendInput %CurrentDateTime%, %Month%
+;~ SendInput %A_ScreenWidth%, %A_ScreenHeight%
+
+
+return
+
+
+
+
 ::]d::
 FormatTime, CurrentDate,, yyyy/M/d
 SendInput %CurrentDate%
@@ -274,7 +317,7 @@ SendInput %CurrentDateTime%
 Return
 
 ::]dtl::
-FormatTime, CurrentDate,, yyyy, MMMM d, dddd h:mm tt
+FormatTime, CurrentDate,, yyyy, MMMM dd, dddd h:mm tt
 SendInput %CurrentDate%
 Return
 

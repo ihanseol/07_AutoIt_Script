@@ -16,24 +16,24 @@ MainJob()
 
 }
 
-;~ FindExcelPopUP() {
-    ;~ ; Define the filename of the image to search for
-    ;~ imageFilename := "excel.jpg"
+; ~ FindExcelPopUP() {
+;     ~ ; Define the filename of the image to search for
+;     ~ imageFilename := "excel.jpg"
 
-    ;~ ; Capture a screenshot of the secondary screen
-    ;~ CoordMode, Pixel, Screen
-    ;~ WinGetPos, X, Y, Width, Height, ahk_class XLMAIN ; Replace XLMAIN with the class of your Excel window
-    ;~ ImageSearch, FoundX, FoundY, X, Y, Width, Height, *25 %imageFilename% ; Adjust the tolerance as needed
+;     ~ ; Capture a screenshot of the secondary screen
+;     ~ CoordMode, Pixel, Screen
+;     ~ WinGetPos, X, Y, Width, Height, ahk_class XLMAIN ; Replace XLMAIN with the class of your Excel window
+;     ~ ImageSearch, FoundX, FoundY, X, Y, Width, Height, *25 %imageFilename% ; Adjust the tolerance as needed
 
-    ;~ ; Check if the image was found
-    ;~ if ErrorLevel = 0 {
-        ;~ MsgBox, Image found at coordinates (%FoundX%, %FoundY%)
-    ;~ } else {
-        ;~ MsgBox, Image not found.
-    ;~ }
+;     ~ ; Check if the image was found
+;     ~ if ErrorLevel = 0 {
+;         ~ MsgBox, Image found at coordinates (%FoundX%, %FoundY%)
+;     ~ } else {
+;         ~ MsgBox, Image not found.
+;     ~ }
 
-    ;~ return
-;~ }
+;     ~ return
+; ~ }
 
 
 ;~ GetExcelClass(){
