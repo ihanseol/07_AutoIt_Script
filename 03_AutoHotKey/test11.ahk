@@ -2,7 +2,7 @@
 #SingleInstance force
 
 result := "Command line arguments:`n`n"
-for index, arg in args {
+for index, arg in A_Args {
 result .= "Argument " . index . ": " . arg . "`n"
 }
 
